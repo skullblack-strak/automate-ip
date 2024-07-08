@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "automate-ip"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.2"
+
+
+requests = "^2.32.2"
+pyscreeze = "^0.1.30"
+pyautogui = "0.9.54"
+pillow = "^10.3.0"
+opencv-python = "^4.9.0.80"
+cryptography = "^42.0.7"
+python-dotenv = "^1.0.1"
+pyperclip = "^1.8.2"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+automate_run = 'automate_ip.main:run'
