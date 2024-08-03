@@ -19,10 +19,11 @@ cryptography = "^42.0.7"
 python-dotenv = "^1.0.1"
 pywin32 = "^306"
 pyperclip = "^1.9.0"
+imutils = "^0.5.4"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
-automate_run = 'automate_ip.main:run'
+dev = 'automate_ip.main:run'
