@@ -1,8 +1,5 @@
 import pyscreeze
-import numpy as np
 import pyautogui as pg
-import cv2
-import imutils
 
 # print("Working dir:", os.getcwd())
 # print("Files in here:", os.listdir("."))
@@ -40,16 +37,23 @@ def find_patient_input():
     except:
         return
 
-def find_first_name_input():
+def find_name_input_group():
     try:
-        input = pg.locateOnScreen('assets/image/first-name-input.png', grayscale=True, confidence=0.9)
+        name_input_group = pg.locateOnScreen('assets/image/name-input-group.png', grayscale=True, confidence=0.9)
+        return name_input_group
+    except:
+        return
+
+def find_first_name_input(region: tuple[int, int, int, int] | None):
+    try:
+        input = pg.locateOnScreen('assets/image/first-name-input.png', grayscale=True, confidence=0.9, region=(region))
         return input
     except:
         return
 
-def find_last_name_input():
+def find_last_name_input(region: tuple[int, int, int, int] | None):
     try:
-        input = pg.locateOnScreen('assets/image/last-name-input.png', grayscale=True, confidence=0.9)
+        input = pg.locateOnScreen('assets/image/last-name-input.png', grayscale=True, confidence=0.9, region=(region))
         return input
     except:
         return

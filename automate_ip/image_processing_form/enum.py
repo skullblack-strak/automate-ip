@@ -1,6 +1,7 @@
 from enum import Enum
 
 class Input(Enum):
+    INFOMATION_FORM = "infomation_form"
     PATIENT_ID = "patient_id"
     LAST_NAME = "last_name"
     MIDDLE_NAME = "middle_name"

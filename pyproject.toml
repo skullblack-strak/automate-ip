@@ -27,3 +27,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 dev = 'automate_ip.main:run'
+test_detect_form = 'automate_ip.image_processing_form.detect_form:test_detect_form'

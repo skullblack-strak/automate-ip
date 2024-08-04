@@ -25,7 +25,7 @@ def setup_input_list():
     # input_list_in_form.append(mold(Input.DATE_OF_BIRTH.value, 150, 255))
     # input_list_in_form.append(mold(Input.COMMENT.value, 257, 468))
 
-    # input_list_in_form.append(mold(Input.PATIENT_ID.value, 0, "write", 60, 60))
+    input_list_in_form.append(mold(Input.PATIENT_ID.value, 33, "write", 60, 60))
     input_list_in_form.append(mold(Input.FIRST_NAME.value, 38, "copy", 380, 150))
     input_list_in_form.append(mold(Input.LAST_NAME.value, 39, "copy", 60, 150))
     # input_list_in_form.append(mold(Input.MIDDLE_NAME.value, 4, "write", 220, 150))
@@ -60,7 +60,7 @@ def copyPasteText(text:str):
 
 def writeText(text:str):
     pyautogui.typewrite(text, interval=0.05)
-    pyautogui.write(text, interval=0.05)
+    # pyautogui.write(text, interval=0.05)
 
 def copy(s):
     cb.OpenClipboard()
@@ -79,3 +79,30 @@ def mapDateTHToDateNum(date_th:str):
     [day,month_th,year] = date_th.split(' ')
     year_th = int(year) - 543
     return f'{month_th_to_num[month_th]}/{day}/{year_th}'
+
+    # "infomation_form": infomation_form,
+    # "patient": patient,
+    # "first_name": input_group['first_name'],
+    # "last_name": input_group['last_name'],
+    # "sex": sex,
+    # "birth_date": birth_date
+
+def write_form(center_position_input: dict[str, pyautogui.Point | None], infomation:list[str]):
+    pyautogui.click(center_position_input[Input.LAST_NAME.value].x, center_position_input[Input.LAST_NAME.value].y)
+    print(center_position_input)
+    print(infomation)
+
+    input_list_in_form = setup_input_list()
+    for input in input_list_in_form:
+        pyautogui.click(center_position_input[input.name].x, center_position_input[input.name].y)
+        text = infomation[input.infomation_index]
+        if input.name == Input.DATE_OF_BIRTH.value:
+            text = mapDateTHToDateNum(text)
+        print("text", text)
+        if input.name == Input.SEX.value:
+            mapSex(text, center_position_input[input.name].x, center_position_input[input.name].y)
+        else:
+            if input.working_style == "write":
+                writeText(text)
+            else:
+                copyPasteText(text)
