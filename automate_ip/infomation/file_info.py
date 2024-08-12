@@ -9,11 +9,10 @@ def read():
         file_name = get_env(Environment.INFOMATION_FILE_NAME.value)
 
         # Using os.path.join() 
-        file_path = os.path.join(base_path, file_name) 
+        file_path = os.path.normpath(os.path.join(base_path, file_name))
         with open(file_path, "r", encoding="utf-8") as file:
             text_file = file.read()
             if is_not_blank(text_file):
-                # print("Files in here:", os.listdir("."))
                 return text_file.split(',')
             else:
                 return []

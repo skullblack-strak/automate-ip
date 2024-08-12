@@ -10,5 +10,4 @@ sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
 def run():
     detect
     # print(read() is not None)
-    # print(find_image_position())
     print("end")

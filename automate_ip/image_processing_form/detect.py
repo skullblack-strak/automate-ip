@@ -37,9 +37,6 @@ while True:
         if not (infomation is None):
             if len(infomation):
                 write_form(center_position_input, infomation)
-                # print("infomation", infomation)
-                # auto complete from
-                # form(centerPositionImage.x, centerPositionImage.y, infomation)
                 # remove infomation
                 remove()
             else:
