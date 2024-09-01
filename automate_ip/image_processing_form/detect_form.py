@@ -38,12 +38,12 @@ def detect_input_group(screenshot: cv2.typing.MatLike, drew: bool = False) -> di
     name_input_group = find_name_input_group()
     if not name_input_group: 
         return dict({Input.FIRST_NAME.value:None,Input.LAST_NAME.value:None})
-    first_name_input = find_first_name_input(region=(
+    last_name_input = find_last_name_input(region=(
         name_input_group.left + int(name_input_group.width / 2) + padding, 
         name_input_group.top + padding, 
         name_input_group.left + int(name_input_group.width/2) - padding, 
         name_input_group.top + name_input_group.height - padding))
-    last_name_input = find_last_name_input(region=(
+    first_name_input = find_first_name_input(region=(
         name_input_group.left + padding, 
         name_input_group.top + padding, 
         name_input_group.left + int(name_input_group.width/2) - padding, 

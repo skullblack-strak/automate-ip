@@ -6,10 +6,8 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.12,<3.14"
 pandas = "^2.2.2"
-
-
 requests = "^2.32.2"
 pyscreeze = "^0.1.30"
 pyautogui = "0.9.54"
@@ -20,11 +18,12 @@ python-dotenv = "^1.0.1"
 pywin32 = "^306"
 pyperclip = "^1.9.0"
 imutils = "^0.5.4"
+windows-toasts = "^1.2.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
 [tool.poetry.scripts]
-dev = 'automate_ip.main:run'
+dev = 'automate_ip.main:main'
 test_detect_form = 'automate_ip.image_processing_form.detect_form:test_detect_form'
