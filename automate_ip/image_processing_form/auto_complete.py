@@ -1,6 +1,7 @@
 import pyautogui
 import pyperclip 
-from automate_ip.image_processing_form.enum import Input, month_th_to_num
+from automate_ip.image_processing_form.enum import Environment, Input, month_th_to_num
+from automate_ip.system.env import get_env
 import win32clipboard as cb
 
 # mold input list
@@ -70,9 +71,15 @@ def copy(s):
 
 def mapSex(sex:str, sex_x:int, sex_y:int):
     if sex == "Miss" or sex == "Missis":
-        pyautogui.click(sex_x, sex_y+65)
+        pyautogui.click(sex_x, sex_y+65+getSexLocationPoint())
     else:
-        pyautogui.click(sex_x, sex_y+48)
+        pyautogui.click(sex_x, sex_y+48+getSexLocationPoint())
+
+def getSexLocationPoint():
+    try:
+        return int(get_env(Environment.SEX_LOCATION_POINT.value))
+    except:
+        return 0
 
 def mapDateTHToDateNum(date_th:str):
     print("date_th", date_th)
