@@ -3,12 +3,6 @@ import time
 from automate_ip.infomation.file_info import read, remove
 from automate_ip.image_processing_form.auto_complete import write_form
 from automate_ip.image_processing_form.detect_form import detect_form
-from windows_toasts import Toast, WindowsToaster
-
-toaster = WindowsToaster('AutomateIP')
-newToast = Toast()
-newToast.text_fields = ['running autocomplete NAVIS-EX form']
-toaster.show_toast(newToast)
 
 def run():
     while True:

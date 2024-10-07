@@ -1,6 +1,6 @@
 @echo off
 
-cmd /c "cd /d C:\Program Files\automate-ip"
+cmd /c "cd /d %cd%"
 poetry run dev
 
 @pause
