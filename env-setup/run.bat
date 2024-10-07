@@ -1,6 +1,6 @@
 @echo off
 
-cmd /c "cd /d C:\Program Files\automate-ip\env-setup"
+cmd /c "cd /d %cd%"
 py script.py
 
-@pause
+exit /b 0

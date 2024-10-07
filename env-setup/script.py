@@ -18,5 +18,14 @@ def get_env(key:str):
     load_dotenv(dotenv_file)
     return os.environ[key]
 
-set_env("INFOMATION_BASE_PATH",path)
-set_env("INFOMATION_FILE_NAME",information_file)
+env_file = '../.env'
+
+# Check if the .env file exists
+if not os.path.exists(env_file):
+    # Create the .env file and write default content
+    with open(env_file, 'w') as f:
+        f.write(f"INFOMATION_BASE_PATH='{path}'\n")
+        f.write(f"INFOMATION_FILE_NAME='{information_file}'\n")
+else:
+    set_env("INFOMATION_BASE_PATH",path)
+    set_env("INFOMATION_FILE_NAME",information_file)
