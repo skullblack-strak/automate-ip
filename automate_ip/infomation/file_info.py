@@ -21,13 +21,16 @@ def read():
     
 def remove():
     try:
-        # Variables with environment
         base_path = get_env(Environment.INFOMATION_BASE_PATH.value)
-        file_name = get_env(Environment.INFOMATION_FILE_NAME.value)
-
-        # Using os.path.join() 
-        file_path = os.path.join(base_path, file_name) 
-        os.remove(file_path)
+        for filename in os.listdir(base_path):
+            file_path = os.path.join(base_path, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print('Failed to delete %s. Reason: %s' % (file_path, e))
     except:
         return
 
